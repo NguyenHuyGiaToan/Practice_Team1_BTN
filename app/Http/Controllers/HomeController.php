@@ -91,7 +91,7 @@ public function cart()
             $total += $item['gia'] * $item['so_luong'];
         }
 
-        return view('caycanh.cart', compact('cart', 'total', 'danhMucs'));
+        return view('laptop.cart', compact('cart', 'total', 'danhMucs'));
     }
 
     // 5. XÓA SẢN PHẨM KHỎI GIỎ
@@ -139,7 +139,7 @@ public function cart()
         foreach ($cart as $id => $item) {
             DB::table('chi_tiet_don_hang')->insert([
                 'ma_don_hang' => $maDonHang,
-                'id_san_pham' => $id,
+                'laptop_id' => $id,
                 'so_luong' => $item['so_luong'],
                 'don_gia' => $item['gia']
             ]);

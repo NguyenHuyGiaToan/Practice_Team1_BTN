@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SanPhamController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -26,13 +28,7 @@ Route::post('/add-to-cart', [HomeController::class, 'addToCart'])->name('cart.ad
 Route::post('/cart/remove', [HomeController::class, 'removeFromCart'])->name('cart.remove');
 Route::post('/cart/checkout', [HomeController::class, 'checkout'])->name('cart.checkout');
 
-
-
-// Order routes (đặt các route liên quan đến đặt hàng, giỏ hàng ở đây)
-
-
-
-
+Route::post('/timkiem', [SanPhamController::class, 'search'])->name('search');
 
 // Admin routes (đặt các route liên quan đến trang quản trị ở đây)
 Route::delete('/laptop_delete/{id}', [App\Http\Controllers\AdminLaptopController::class, 'laptop_delete'])->name("laptop_delete");
